@@ -1,0 +1,31 @@
+#heading {
+    background-color: peachpuff;
+    height: 80px;
+    width: 400px; 
+}
+
+#content {
+    background-color: olivedrab;
+    height: 400px;
+    width: 500px; 
+}
+
+#winloss {
+    background-color: pink;
+    height: 200px;
+    width: 300px; 
+}
+
+#crystal-images {
+    
+}
+#userScore, #totalScore {
+    background-color: purple;
+    height: 200px;
+    width: 300px; 
+}
+#score {
+    background-color: bisque;
+    height: 200px;
+    width: 300px; 
+}
