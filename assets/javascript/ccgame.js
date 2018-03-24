@@ -16,19 +16,70 @@ var randomNum = 0;
 var winCounter = 0; 
 var loseCounter = 0;
 var numOptions = []; 
+var crystalVal = {}
 
-var randomNumGen = function() {
+function randomNumGen() {
     return Math.floor(Math.random() * (121 - 19)) + 19;
 }
 
-randomNum = randomNumGen(); 
-
-var crystalCounter = function() {
+function crystalCounter() {
     return Math.floor(Math.random() * (13 - 1)) + 1;
 }
 
-for (i = 0; i < 4; i++){
-    number = crystalCounter();
-    numOptions.push(number)
-    console.log(); 
+function resetGame() {
+    randomNum = randomNumGen(); 
+    $("#randomNumber").text(randomNum);
+    console.log(randomNum);   
+    crystalVal = {
+        blue: crystalCounter(), 
+        yellow: crystalCounter(), 
+        pink: crystalCounter(),
+        green: crystalCounter(), 
+    }
+    console.log(crystalVal);  
+
 }
+
+resetGame()
+
+$("#blue").click(function(){
+    //alert("blue crystal");
+    //console.log(crystalVal.blue);
+    counter+=crystalVal.blue;
+    console.log(counter);
+    $("#userScore").text(counter);
+    winLoss();
+});
+$("#yellow").click(function(){
+    //alert("yellow crystal");
+    counter+=crystalVal.yellow; 
+    console.log(counter);
+    $("#userScore").text(counter);
+    winLoss();
+});
+$("#pink").click(function(){
+    //alert("pink crystal");
+    counter+=crystalVal.pink;
+    console.log(counter);
+    $("#userScore").text(counter);
+    winLoss();
+});
+$("#green").click(function(){
+    //alert("green crystal");
+    counter+=crystalVal.green;
+    console.log(counter);
+    $("#userScore").text(counter);
+    winLoss();
+});
+
+
+function winLoss() {
+    if (randomNum === counter) {
+    alert("You Win!!");
+    resetGame();
+    } else if (randomNum < counter) {
+    alert("Sorry You Lose!");
+    resetGame();
+    }
+}
+ 
